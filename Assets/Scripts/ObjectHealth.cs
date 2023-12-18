@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EnemyHealth : MonoBehaviour
+public class ObjectHealth : MonoBehaviour
 {
     public float health = 100f;
     public float maxHealth = 100f;
@@ -37,7 +37,7 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
-    // 
+    // Returns health as a float between 0 and 1
     float CalculateHealth()
     {
         return health / maxHealth;
@@ -50,6 +50,16 @@ public class EnemyHealth : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
+        }
+    }
+
+    // Heal
+    public void heal(float healthValue)
+    {
+        health += healthValue;
+        if (health > maxHealth)
+        {
+            health = maxHealth;
         }
     }
 }

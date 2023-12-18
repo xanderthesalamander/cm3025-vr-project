@@ -10,6 +10,8 @@ TagManager:
   - Attachment Point
   - TurretMainBody
   - TurretArm
+  - PlayerBase
+  - EnemyBullet
   layers:
   - Default
   - TransparentFX

@@ -6,4 +6,5 @@ public class BulletStats : MonoBehaviour
 {
     // Stats
     public float damage;
+    public float speed;
 }

@@ -13,7 +13,7 @@ public class EnemyMove : MonoBehaviour
     void Start()
     {
         // Set target as the player
-        target = GameObject.FindWithTag("Player").transform;
+        target = GameObject.FindWithTag("PlayerBase").transform;
         // Get enemy navigation mesh agent
         navMeshAgent = GetComponent<NavMeshAgent>();
     }
@@ -21,12 +21,9 @@ public class EnemyMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Set Y position
-        transform.
         // Look at target
         transform.LookAt(target);
-        // Vector3 destination = 
-        // destination.y = 3;
+        // Move towards the target
         navMeshAgent.SetDestination(target.transform.position);
         // When at a certain distance
         if (Vector3.Distance(transform.position, target.position) < attackDistance)

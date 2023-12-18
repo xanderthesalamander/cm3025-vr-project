@@ -2,14 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyPart : MonoBehaviour
+public class ObjectTakeDamage : MonoBehaviour
 {
-    public EnemyHealth enemy;
+    public ObjectHealth enemyHealth;
     public float damage_multiplier;
+    public string bulletTag = "Bullet";
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Bullet")
+        if (collision.gameObject.tag == bulletTag)
         {
             // Get bullet damage
             BulletStats bulletStats = collision.gameObject.GetComponent<BulletStats>();
@@ -17,7 +18,7 @@ public class EnemyPart : MonoBehaviour
             // Calculate damage
             float damage = damage_multiplier * bullet_damage;
             // Take damage
-            enemy.takeDamage(damage);
+            enemyHealth.takeDamage(damage);
             // Delete bullet
             Destroy(collision.gameObject);
         }
