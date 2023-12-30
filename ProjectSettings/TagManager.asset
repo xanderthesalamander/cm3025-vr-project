@@ -6,12 +6,11 @@ TagManager:
   tags:
   - Enemy
   - Bullet
-  - Snap Zone
-  - Attachment Point
   - TurretMainBody
   - TurretArm
   - PlayerBase
   - EnemyBullet
+  - TurretBase
   layers:
   - Default
   - TransparentFX

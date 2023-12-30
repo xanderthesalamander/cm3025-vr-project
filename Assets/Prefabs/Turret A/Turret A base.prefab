@@ -118,6 +118,7 @@ GameObject:
   - component: {fileID: 4713754876193406310}
   - component: {fileID: 847733464198741867}
   - component: {fileID: 1232803701536871934}
+  - component: {fileID: 2582246970188382486}
   m_Layer: 6
   m_Name: Body attach point
   m_TagString: Untagged
@@ -274,6 +275,20 @@ MonoBehaviour:
   m_SocketScaleMode: 0
   m_FixedScale: {x: 1, y: 1, z: 1}
   m_TargetBoundsSize: {x: 1, y: 1, z: 1}
+--- !u!114 &2582246970188382486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4564440121615493610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcb229a5611ca4d90b0c1778eb8a8b73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagName: TurretMainBody
+  inTriggerObject: {fileID: 0}
 --- !u!1 &6743369865800316706
 GameObject:
   m_ObjectHideFlags: 0
@@ -285,9 +300,10 @@ GameObject:
   - component: {fileID: 8889007550775205731}
   - component: {fileID: 6172220726457998483}
   - component: {fileID: 4949374645124159084}
+  - component: {fileID: 6976765816016402785}
   m_Layer: 6
   m_Name: Turret A base
-  m_TagString: Untagged
+  m_TagString: TurretBase
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -488,6 +504,20 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+--- !u!114 &6976765816016402785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6743369865800316706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1732b9f05a6e84356a0bc45276b78551, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bodyAttachPoint: {fileID: 4564440121615493610}
+  referenceObject: {fileID: 1940471050681622960}
 --- !u!1 &8171482885457402878
 GameObject:
   m_ObjectHideFlags: 0

@@ -101,7 +101,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -118,6 +118,7 @@ GameObject:
   - component: {fileID: 4713754876193406310}
   - component: {fileID: 847733464198741867}
   - component: {fileID: 1232803701536871934}
+  - component: {fileID: 3533721215008119363}
   m_Layer: 6
   m_Name: Arm attach point L
   m_TagString: Untagged
@@ -274,6 +275,20 @@ MonoBehaviour:
   m_SocketScaleMode: 0
   m_FixedScale: {x: 1, y: 1, z: 1}
   m_TargetBoundsSize: {x: 1, y: 1, z: 1}
+--- !u!114 &3533721215008119363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4564440121615493610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcb229a5611ca4d90b0c1778eb8a8b73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagName: TurretArm
+  attachedObject: {fileID: 0}
 --- !u!1 &6743369865800316706
 GameObject:
   m_ObjectHideFlags: 0
@@ -285,9 +300,10 @@ GameObject:
   - component: {fileID: 8889007550775205731}
   - component: {fileID: 6172220726457998483}
   - component: {fileID: 4949374645124159084}
+  - component: {fileID: 2142592429090132853}
   m_Layer: 6
   m_Name: Turret A main body
-  m_TagString: Untagged
+  m_TagString: TurretMainBody
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -489,6 +505,27 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+--- !u!65 &2142592429090132853
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6743369865800316706}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.15, y: 0.35, z: 0.15}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8078846971669361035
 GameObject:
   m_ObjectHideFlags: 0
@@ -564,6 +601,7 @@ GameObject:
   - component: {fileID: 5169027877139021870}
   - component: {fileID: 2670806325926868088}
   - component: {fileID: 6321970530673834906}
+  - component: {fileID: 5792197412805056236}
   m_Layer: 6
   m_Name: Arm attach point R
   m_TagString: Untagged
@@ -720,3 +758,17 @@ MonoBehaviour:
   m_SocketScaleMode: 0
   m_FixedScale: {x: 1, y: 1, z: 1}
   m_TargetBoundsSize: {x: 1, y: 1, z: 1}
+--- !u!114 &5792197412805056236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8414137821711700507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcb229a5611ca4d90b0c1778eb8a8b73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagName: TurretArm
+  attachedObject: {fileID: 0}
