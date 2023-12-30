@@ -254,6 +254,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftArm: {fileID: 7578210170358970273}
   rightArm: {fileID: 5854566906470757276}
+  minShootingDistance: 10
 --- !u!1 &4571242421794220709
 GameObject:
   m_ObjectHideFlags: 0
@@ -564,6 +565,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHealth: {fileID: 3984886413749188730}
   damage_multiplier: 0.8
+  bulletTag: Bullet
 --- !u!114 &7161921103459099449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -700,6 +702,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHealth: {fileID: 3984886413749188730}
   damage_multiplier: 0.8
+  bulletTag: Bullet
 --- !u!114 &6702752215073805447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -955,6 +958,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHealth: {fileID: 3984886413749188730}
   damage_multiplier: 1
+  bulletTag: Bullet
 --- !u!1 &8638505553418407608
 GameObject:
   m_ObjectHideFlags: 0

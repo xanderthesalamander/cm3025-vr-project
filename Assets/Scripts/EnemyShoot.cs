@@ -6,6 +6,7 @@ public class EnemyShoot : MonoBehaviour
 {
     public GameObject leftArm;
     public GameObject rightArm;
+    public float minShootingDistance = 8.0f;
     private Transform target;
     private EnemyGun leftGunScript;
     private EnemyGun rightGunScript;
@@ -28,7 +29,7 @@ public class EnemyShoot : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(Random.Range(minInterval, maxInterval));
-            if (gunScript != null)
+            if (gunScript != null && Vector3.Distance(armObject.transform.position, target.position) <= minShootingDistance)
             {
                 // Target aim
                 Vector3 directionToTarget = target.position - armObject.transform.position;

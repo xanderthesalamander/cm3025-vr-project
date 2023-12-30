@@ -11,10 +11,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Samples/XR Interaction Toolkit/2.5.2/Starter Assets/DemoScene.unity
     guid: 319dafa5c80f29f428dc1e0d03f04177
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Main Scene.unity
     guid: 50e9be7a17eb04153835e0c5505978fa
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Main Scene Mixed Reality.unity
     guid: dfd1e0088a7ef4561a99bd75ee75ab5b
   m_configObjects:
