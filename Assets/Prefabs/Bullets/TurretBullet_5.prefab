@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7290288588861392415}
   - component: {fileID: 4485840338162158986}
   m_Layer: 0
-  m_Name: SimpleBullet_20
+  m_Name: TurretBullet_5
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4c1bc104873b443f985c63d175d9823d, type: 2}
+  - {fileID: 2100000, guid: 74cfbd0117d734626abc4ac461fdbf33, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -146,5 +146,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3277182e5ecf04b379de57e367ff37e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
-  speed: 20
+  damage: 5
+  speed: 15

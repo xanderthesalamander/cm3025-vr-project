@@ -4,14 +4,21 @@ using UnityEngine;
 
 public class TurretManager : MonoBehaviour
 {
-    public GameObject bodyAttachPoint;
-    public Transform referenceObject; // Reference object to rotate
     private bool isAssembled = false;
-
+    public GameObject bodyAttachPoint;
+    public Transform bodyAttachTransform;
     private AttachedObjectRef checkBody;
+    private GameObject turretBody;
+    private GameObject armAttachPointL;
+    private Transform armAttachTransformL;
+    private GameObject armAttachPointR;
+    private Transform armAttachTransformR;
+    private GameObject turretArmL;
+    private GameObject turretArmR;
 
     public void Start()
     {
+        // Checks if something is ttached to the base
         checkBody = bodyAttachPoint.GetComponent<AttachedObjectRef>();
     }
 
@@ -22,7 +29,16 @@ public class TurretManager : MonoBehaviour
         // When assembled
         if (isAssembled)
         {
-            RotateReferenceObject();
+            Transform target = findClosestEnemy();
+            if (target != null)
+            {
+                RotateBodyToTarget(target);
+                RotateArmsToTarget(target);
+                if (Random.Range(0.0f,1.0f) > 0.95f)
+                {
+                    Shoot();
+                }
+            }
         }
     }
 
@@ -33,19 +49,21 @@ public class TurretManager : MonoBehaviour
         if (checkBody != null)
         {
             // Check for the turretBody
-            GameObject turretBody = checkBody.attachedObject;
+            turretBody = checkBody.attachedObject;
             if (turretBody != null)
             {   
                 // Check for left and right arm attach point scripts
-                GameObject armAttachPointL = turretBody.transform.Find("Arm attach point L")?.gameObject;
+                armAttachPointL = turretBody.transform.Find("Arm attach point L")?.gameObject;
+                armAttachTransformL = turretBody.transform.Find("Arm attach transform L");
                 AttachedObjectRef checkArmL = armAttachPointL.GetComponent<AttachedObjectRef>();
-                GameObject armAttachPointR = turretBody.transform.Find("Arm attach point R")?.gameObject;
+                armAttachPointR = turretBody.transform.Find("Arm attach point R")?.gameObject;
+                armAttachTransformR = turretBody.transform.Find("Arm attach transform R");
                 AttachedObjectRef checkArmR = armAttachPointR.GetComponent<AttachedObjectRef>();
                 // Check for left and right arms
                 if (checkArmL != null && checkArmR != null)
                 {
-                    GameObject turretArmL = checkArmL.attachedObject;
-                    GameObject turretArmR = checkArmR.attachedObject;
+                    turretArmL = checkArmL.attachedObject;
+                    turretArmR = checkArmR.attachedObject;
                     // If both left and right arms are found
                     if (turretArmL != null && turretArmR != null)
                     {
@@ -56,12 +74,61 @@ public class TurretManager : MonoBehaviour
             }
         }
         // Turret is not fully assembled
+        turretBody = null;
+        armAttachPointL = null;
+        armAttachTransformL = null;
+        turretArmL = null;
+        armAttachPointR = null;
+        armAttachTransformR = null;
+        turretArmR = null;
         return false;
     }
 
-    private void RotateReferenceObject()
+    private void RotateBodyToTarget(Transform target)
     {
-        // Rotate the reference object on the y-axis (adjust the speed as needed)
-        referenceObject.Rotate(Vector3.up * Time.deltaTime * 30.0f); // Adjust the rotation speed as needed
+        // Rotate body to point at target (only on y axis)
+        Vector3 directionToTarget = target.position - transform.position;
+        // Ignore vertical rotation
+        directionToTarget.y = 0;
+        Quaternion lookRotation = Quaternion.LookRotation(directionToTarget);
+        bodyAttachTransform.rotation = Quaternion.Euler(0, lookRotation.eulerAngles.y, 0);
     }
+
+    private void RotateArmsToTarget(Transform target)
+    {
+        // // Rotate the arms attach transforms (in the body)
+        armAttachTransformL.LookAt(target);
+        armAttachTransformR.LookAt(target);
+    }
+
+    private void Shoot()
+    {
+        TurretGun gunScriptL = turretArmL.GetComponent<TurretGun>();
+        TurretGun gunScriptR = turretArmR.GetComponent<TurretGun>();
+        gunScriptL.FireBullet();
+        gunScriptR.FireBullet();
+    }
+
+    private Transform findClosestEnemy()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        if (enemies.Length == 0)
+        {
+            return null;
+        }
+        Transform closestEnemy = enemies[0].transform;
+        float closestDistance = Vector3.Distance(transform.position, closestEnemy.position);
+        for (int i = 1; i < enemies.Length; i++)
+        {
+            float distanceToEnemy = Vector3.Distance(transform.position, enemies[i].transform.position);
+
+            if (distanceToEnemy < closestDistance)
+            {
+                closestEnemy = enemies[i].transform;
+                closestDistance = distanceToEnemy;
+            }
+        }
+        return closestEnemy;
+    }
+    
 }

@@ -288,7 +288,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tagName: TurretMainBody
-  inTriggerObject: {fileID: 0}
+  attachedObject: {fileID: 0}
 --- !u!1 &6743369865800316706
 GameObject:
   m_ObjectHideFlags: 0
@@ -517,7 +517,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bodyAttachPoint: {fileID: 4564440121615493610}
-  referenceObject: {fileID: 1940471050681622960}
+  bodyAttachTransform: {fileID: 1940471050681622960}
 --- !u!1 &8171482885457402878
 GameObject:
   m_ObjectHideFlags: 0
