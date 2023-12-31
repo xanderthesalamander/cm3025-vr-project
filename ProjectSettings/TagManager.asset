@@ -11,6 +11,7 @@ TagManager:
   - PlayerBase
   - EnemyBullet
   - TurretBase
+  - GameManager
   layers:
   - Default
   - TransparentFX

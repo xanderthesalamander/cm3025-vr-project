@@ -7,6 +7,9 @@ public class ObjectHealth : MonoBehaviour
 {
     public float health = 100f;
     public float maxHealth = 100f;
+    public int resourceValue = 10;
+    private GameObject gameManager;
+    private ResourceManager resourceManager;
 
     public GameObject healthBarUI;
     public Slider slider;
@@ -15,6 +18,8 @@ public class ObjectHealth : MonoBehaviour
     {
         health = maxHealth;
         slider.value = CalculateHealth();
+        gameManager = GameObject.FindWithTag("GameManager");
+        resourceManager = gameManager.GetComponent<ResourceManager>();
     }
 
     void Update()
@@ -49,6 +54,7 @@ public class ObjectHealth : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
+            resourceManager.AddResource(resourceValue);
             Destroy(gameObject);
         }
     }
