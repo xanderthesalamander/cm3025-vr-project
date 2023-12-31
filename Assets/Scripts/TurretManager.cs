@@ -29,16 +29,20 @@ public class TurretManager : MonoBehaviour
         // When assembled
         if (isAssembled)
         {
-            Transform target = findClosestEnemy();
-            if (target != null)
-            {
-                RotateBodyToTarget(target);
-                RotateArmsToTarget(target);
-                if (Random.Range(0.0f,1.0f) > 0.95f)
-                {
-                    Shoot();
-                }
-            }
+            turnLights("green");
+            turnAndShoot();
+        }
+        else
+        {
+            // Turret is not fully assembled
+            turnLights("red");
+            turretBody = null;
+            armAttachPointL = null;
+            armAttachTransformL = null;
+            turretArmL = null;
+            armAttachPointR = null;
+            armAttachTransformR = null;
+            turretArmR = null;
         }
     }
 
@@ -74,13 +78,6 @@ public class TurretManager : MonoBehaviour
             }
         }
         // Turret is not fully assembled
-        turretBody = null;
-        armAttachPointL = null;
-        armAttachTransformL = null;
-        turretArmL = null;
-        armAttachPointR = null;
-        armAttachTransformR = null;
-        turretArmR = null;
         return false;
     }
 
@@ -101,12 +98,27 @@ public class TurretManager : MonoBehaviour
         armAttachTransformR.LookAt(target);
     }
 
-    private void Shoot()
+    private void turnAndShoot()
     {
-        TurretGun gunScriptL = turretArmL.GetComponent<TurretGun>();
-        TurretGun gunScriptR = turretArmR.GetComponent<TurretGun>();
-        gunScriptL.FireBullet();
-        gunScriptR.FireBullet();
+        Transform target = findClosestEnemy();
+        if (target != null)
+        {
+            // Aim at closest enemy
+            RotateBodyToTarget(target);
+            RotateArmsToTarget(target);
+            // Shoot at enemy
+            TurretGun gunScriptL = turretArmL.GetComponent<TurretGun>();
+            TurretGun gunScriptR = turretArmR.GetComponent<TurretGun>();
+            // Add randomness
+            if (Random.Range(0.0f,1.0f) > 0.95f)
+            {
+                gunScriptL.FireBullet();
+            }
+            if (Random.Range(0.0f,1.0f) > 0.95f)
+            {
+                gunScriptR.FireBullet();
+            }
+        }
     }
 
     private Transform findClosestEnemy()
@@ -129,6 +141,43 @@ public class TurretManager : MonoBehaviour
             }
         }
         return closestEnemy;
+    }
+
+    private void turnLights(string status)
+    {
+        // Get all lights
+        List<Transform> lightContainers = new List<Transform>();
+        Transform turretBaseLights = transform.Find("Lights");
+        if (turretBaseLights != null)
+        {
+            lightContainers.Add(turretBaseLights);
+        }
+        Transform turretBodyLights = turretBody.transform.Find("Lights");
+        if (turretBodyLights != null)
+        {
+            lightContainers.Add(turretBodyLights);
+        }
+        // For each light group
+        foreach (Transform lightsGroup in lightContainers)
+        {
+            if (lightsGroup != null)
+            {
+                // Go trhough each light inside the group
+                foreach (Transform light in lightsGroup)
+                {
+                    TurretLightController lightController = light.GetComponent<TurretLightController>();
+                    if (lightController != null && status == "green")
+                    {
+                       lightController.TurnLightGreen(); 
+                    }
+                    if (lightController != null && status == "red")
+                    {
+                       lightController.TurnLightRed(); 
+                    } 
+                }
+            }
+        }
+
     }
     
 }
