@@ -3906,11 +3906,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1539292652}
     m_Modifications:
-    - target: {fileID: 1390645522368611445, guid: c666801d304494bb3abe5fa434668c76,
-        type: 3}
-      propertyPath: doorsOpen
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1699283264822044022, guid: c666801d304494bb3abe5fa434668c76,
         type: 3}
       propertyPath: m_Name
@@ -3980,8 +3975,8 @@ SceneRoots:
   - {fileID: 485279746}
   - {fileID: 1937490509}
   - {fileID: 56004152}
-  - {fileID: 635875321}
-  - {fileID: 1237198621}
   - {fileID: 648197918}
   - {fileID: 410007672}
   - {fileID: 1539292652}
+  - {fileID: 635875321}
+  - {fileID: 1237198621}

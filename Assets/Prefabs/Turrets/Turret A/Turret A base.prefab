@@ -677,7 +677,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fb0f55199af74a8f9efc6466ebe2fec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  partName: Turret Base A
   resourceCost: 200
+  partImageSprite: {fileID: 21300000, guid: 0bdb1d107a6cc4d1c85939fb10e325c8, type: 3}
 --- !u!1 &8171482885457402878
 GameObject:
   m_ObjectHideFlags: 0

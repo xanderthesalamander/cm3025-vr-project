@@ -6,21 +6,27 @@ public class ResourceTableManager : MonoBehaviour
 {
     public bool doorsOpen = false;
     public Transform turretPartSpawnPoint;
-
+    public GameObject turretPartSelected;
+    public List<GameObject> turretParts;
+    public bool enoughResources;
+    private int currentPartIndex = 0;
     private Animator animator;
     private GameObject gameManager;
     private ResourceManager resourceManager;
+    private int resourceCost;
 
     void Start()
     {
         gameManager = GameObject.FindWithTag("GameManager");
         resourceManager = gameManager.GetComponent<ResourceManager>();
         animator = GetComponent<Animator>();
+        turretPartSelected = turretParts[0];
+        checkEnoughResourcesToSpawn();
     }
 
     void Update()
     {
-        updateDoorsAnimator();
+        checkEnoughResourcesToSpawn();
     }
 
     private void updateDoorsAnimator()
@@ -32,35 +38,57 @@ public class ResourceTableManager : MonoBehaviour
     public void switchDoors()
     {
         doorsOpen = !doorsOpen;
+        updateDoorsAnimator();
     }
 
     public void openDoors()
     {
         doorsOpen = true;
+        updateDoorsAnimator();
     }
 
     public void closeDoors()
     {
         doorsOpen = false;
+        updateDoorsAnimator();
     }
 
-    public void spawnTurretPart(GameObject turretPart)
+    public void SelectNextPart()
+    {
+        currentPartIndex = (currentPartIndex + 1) % turretParts.Count;
+        turretPartSelected = turretParts[currentPartIndex];
+    }
+
+    public void SelectPreviousPart()
+    {
+        currentPartIndex = (currentPartIndex - 1 + turretParts.Count) % turretParts.Count;
+        turretPartSelected = turretParts[currentPartIndex];
+    }
+
+    private void checkEnoughResourcesToSpawn()
     {
         // Get cost
-        TurretPartStats turretPartStats = turretPart.GetComponent<TurretPartStats>();
-        int recourceCost = turretPartStats.resourceCost;
+        TurretPartStats turretPartStats = turretPartSelected.GetComponent<TurretPartStats>();
+        resourceCost = turretPartStats.resourceCost;
         // Check if enough resources
-        if (resourceManager.GetCurrentResources() >= recourceCost)
+        enoughResources = (resourceManager.GetCurrentResources() >= resourceCost);
+    }
+    
+    public void SpawnTurretPart()
+    {
+        if (enoughResources)
         {
             // Pay resources
-            resourceManager.RemoveResource(recourceCost);
+            resourceManager.RemoveResource(resourceCost);
             // Spawn the turret part in the spawn point
-            GameObject spawnedPart = Instantiate(turretPart);
+            GameObject spawnedPart = Instantiate(turretPartSelected);
             spawnedPart.transform.position = turretPartSpawnPoint.position;
+            // Play build sound
+
         }
         else
         {
-
+            // Play error sound
         }
     }
 }
