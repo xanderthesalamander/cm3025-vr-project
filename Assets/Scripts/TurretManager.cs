@@ -5,6 +5,7 @@ using UnityEngine;
 public class TurretManager : MonoBehaviour
 {
     private bool isAssembled = false;
+    private bool wasAssembled = false;
     public GameObject bodyAttachPoint;
     public Transform bodyAttachTransform;
     private AttachedObjectRef checkBody;
@@ -15,17 +16,35 @@ public class TurretManager : MonoBehaviour
     private Transform armAttachTransformR;
     private GameObject turretArmL;
     private GameObject turretArmR;
+    private GameObject gameManager;
+    private ResourceManager resourceManager;
 
     public void Start()
     {
-        // Checks if something is ttached to the base
-        checkBody = bodyAttachPoint.GetComponent<AttachedObjectRef>();
+        // Resource manager
+        gameManager = GameObject.FindWithTag("GameManager");
+        resourceManager = gameManager?.GetComponent<ResourceManager>();
+        // Checks if something is attached to the base
+        checkBody = bodyAttachPoint?.GetComponent<AttachedObjectRef>();
     }
 
     private void Update()
     {
+        wasAssembled = isAssembled;
         // Check if turret is assembled
         isAssembled = CheckAssembled();
+        // Status has changed (turret has been either activated or deactivated)
+        if (wasAssembled != isAssembled)
+        {
+            if (isAssembled)
+            {
+                resourceManager?.AddActiveTurret();
+            }
+            else
+            {
+                resourceManager?.RemoveActiveTurret();
+            }
+        }
         // When assembled
         if (isAssembled)
         {
@@ -53,21 +72,21 @@ public class TurretManager : MonoBehaviour
         if (checkBody != null)
         {
             // Check for the turretBody
-            turretBody = checkBody.attachedObject;
+            turretBody = checkBody?.attachedObject;
             if (turretBody != null)
-            {   
+            {
                 // Check for left and right arm attach point scripts
-                armAttachPointL = turretBody.transform.Find("Arm attach point L")?.gameObject;
-                armAttachTransformL = turretBody.transform.Find("Arm attach transform L");
-                AttachedObjectRef checkArmL = armAttachPointL.GetComponent<AttachedObjectRef>();
-                armAttachPointR = turretBody.transform.Find("Arm attach point R")?.gameObject;
-                armAttachTransformR = turretBody.transform.Find("Arm attach transform R");
-                AttachedObjectRef checkArmR = armAttachPointR.GetComponent<AttachedObjectRef>();
+                armAttachPointL = turretBody?.transform.Find("Arm attach point L")?.gameObject;
+                armAttachTransformL = turretBody?.transform.Find("Arm attach transform L");
+                AttachedObjectRef checkArmL = armAttachPointL?.GetComponent<AttachedObjectRef>();
+                armAttachPointR = turretBody?.transform.Find("Arm attach point R")?.gameObject;
+                armAttachTransformR = turretBody?.transform.Find("Arm attach transform R");
+                AttachedObjectRef checkArmR = armAttachPointR?.GetComponent<AttachedObjectRef>();
                 // Check for left and right arms
                 if (checkArmL != null && checkArmR != null)
                 {
-                    turretArmL = checkArmL.attachedObject;
-                    turretArmR = checkArmR.attachedObject;
+                    turretArmL = checkArmL?.attachedObject;
+                    turretArmR = checkArmR?.attachedObject;
                     // If both left and right arms are found
                     if (turretArmL != null && turretArmR != null)
                     {
@@ -152,7 +171,7 @@ public class TurretManager : MonoBehaviour
         {
             lightContainers.Add(turretBaseLights);
         }
-        Transform turretBodyLights = turretBody.transform.Find("Lights");
+        Transform turretBodyLights = turretBody?.transform.Find("Lights");
         if (turretBodyLights != null)
         {
             lightContainers.Add(turretBodyLights);
