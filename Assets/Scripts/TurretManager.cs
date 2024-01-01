@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TurretManager : MonoBehaviour
 {
+    private float rotationSpeed = 5.0f;
     private bool isAssembled = false;
     private bool wasAssembled = false;
     public GameObject bodyAttachPoint;
@@ -107,14 +108,18 @@ public class TurretManager : MonoBehaviour
         // Ignore vertical rotation
         directionToTarget.y = 0;
         Quaternion lookRotation = Quaternion.LookRotation(directionToTarget);
-        bodyAttachTransform.rotation = Quaternion.Euler(0, lookRotation.eulerAngles.y, 0);
+        Quaternion targetRotation = Quaternion.Euler(0, lookRotation.eulerAngles.y, 0);
+        // Rotate based on rotation speed
+        bodyAttachTransform.rotation = Quaternion.Slerp(bodyAttachTransform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
     }
 
     private void RotateArmsToTarget(Transform target)
     {
-        // // Rotate the arms attach transforms (in the body)
-        armAttachTransformL.LookAt(target);
-        armAttachTransformR.LookAt(target);
+        // Rotate the arms attach transforms (in the body)
+        Quaternion targetRotationL = Quaternion.LookRotation(target.position - armAttachTransformL.position);
+        armAttachTransformL.rotation = Quaternion.Slerp(armAttachTransformL.rotation, targetRotationL, rotationSpeed * Time.deltaTime);
+        Quaternion targetRotationR = Quaternion.LookRotation(target.position - armAttachTransformR.position);
+        armAttachTransformR.rotation = Quaternion.Slerp(armAttachTransformR.rotation, targetRotationR, rotationSpeed * Time.deltaTime);
     }
 
     private void turnAndShoot()
@@ -129,11 +134,11 @@ public class TurretManager : MonoBehaviour
             TurretGun gunScriptL = turretArmL.GetComponent<TurretGun>();
             TurretGun gunScriptR = turretArmR.GetComponent<TurretGun>();
             // Add randomness
-            if (Random.Range(0.0f,1.0f) > 0.95f)
+            if (Random.Range(0.0f, 1.0f) > 0.95f)
             {
                 gunScriptL.FireBullet();
             }
-            if (Random.Range(0.0f,1.0f) > 0.95f)
+            if (Random.Range(0.0f, 1.0f) > 0.95f)
             {
                 gunScriptR.FireBullet();
             }
