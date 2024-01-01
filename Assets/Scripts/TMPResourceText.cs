@@ -17,6 +17,6 @@ public class TMPResourceText : MonoBehaviour
 
     void Update()
     {
-        textMeshProText.text = resourceManager.resources.ToString();
+        textMeshProText.text = resourceManager.GetCurrentResources().ToString();
     }
 }

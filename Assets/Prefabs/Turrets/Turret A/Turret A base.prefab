@@ -444,6 +444,7 @@ GameObject:
   - component: {fileID: 6172220726457998483}
   - component: {fileID: 4949374645124159084}
   - component: {fileID: 6976765816016402785}
+  - component: {fileID: 1337904468278898298}
   m_Layer: 6
   m_Name: Turret A base
   m_TagString: TurretBase
@@ -664,6 +665,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bodyAttachPoint: {fileID: 2834008876213864205}
   bodyAttachTransform: {fileID: 1940471050681622960}
+--- !u!114 &1337904468278898298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6743369865800316706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fb0f55199af74a8f9efc6466ebe2fec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resourceCost: 200
 --- !u!1 &8171482885457402878
 GameObject:
   m_ObjectHideFlags: 0

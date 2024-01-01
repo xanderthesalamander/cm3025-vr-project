@@ -570,6 +570,7 @@ GameObject:
   - component: {fileID: 6172220726457998483}
   - component: {fileID: 4949374645124159084}
   - component: {fileID: 2142592429090132853}
+  - component: {fileID: 3029023937468605225}
   m_Layer: 6
   m_Name: Turret A main body
   m_TagString: TurretMainBody
@@ -800,6 +801,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.15, y: 0.35, z: 0.15}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3029023937468605225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6743369865800316706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fb0f55199af74a8f9efc6466ebe2fec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resourceCost: 400
 --- !u!1 &7775068838189839242
 GameObject:
   m_ObjectHideFlags: 0

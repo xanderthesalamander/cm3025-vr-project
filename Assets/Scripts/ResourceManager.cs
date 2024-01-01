@@ -4,18 +4,11 @@ using UnityEngine;
 
 public class ResourceManager : MonoBehaviour
 {
-    public int resources = 0;
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private int resources = 0;
 
-    // Update is called once per frame
-    void Update()
+    public int GetCurrentResources()
     {
-        
+        return resources;
     }
 
     public void AddResource(int value)
