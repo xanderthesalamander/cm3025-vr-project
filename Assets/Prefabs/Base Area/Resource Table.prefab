@@ -396,6 +396,9 @@ MonoBehaviour:
   - {fileID: 6743369865800316706, guid: cb8a6359f35914ffb87b5483bac9e522, type: 3}
   - {fileID: 6743369865800316706, guid: 40f1ebad8793849ed837416eb0481b0e, type: 3}
   - {fileID: 6743369865800316706, guid: f4f4c515ef4974af88bd0f467b48a807, type: 3}
+  enoughResources: 0
+  printPartAudio: {fileID: 8300000, guid: 279988a4fe5b8491495e0e96541c1fd6, type: 3}
+  errorAudio: {fileID: 8300000, guid: 2fdbbc980d7d34695950f964a90f335a, type: 3}
 --- !u!1 &1776938068869327309
 GameObject:
   m_ObjectHideFlags: 0
@@ -3006,6 +3009,11 @@ PrefabInstance:
       propertyPath: m_TextStyleHashCode
       value: -1183493901
       objectReference: {fileID: 0}
+    - target: {fileID: 1058192830249297481, guid: dabd7ef8e9e024129ab37c0a86ddbbb3,
+        type: 3}
+      propertyPath: buttonPress
+      value: 
+      objectReference: {fileID: 8300000, guid: 2c5607df6ada3496c9eaadd570e0e1d4, type: 3}
     - target: {fileID: 1058192830249297481, guid: dabd7ef8e9e024129ab37c0a86ddbbb3,
         type: 3}
       propertyPath: onRelease.m_PersistentCalls.m_Calls.Array.size

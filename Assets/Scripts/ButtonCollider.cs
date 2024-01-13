@@ -6,15 +6,16 @@ using UnityEngine.Events;
 public class ButtonCollider : MonoBehaviour
 {
     public GameObject button;
+    public AudioClip buttonPress;
     public UnityEvent onPress;
     public UnityEvent onRelease;
     private GameObject presser;
-    private AudioSource sound;
+    private AudioSource audioSource;
     private bool isPressed;
 
     void Start()
     {
-        sound = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
         isPressed = false;
     }
 
@@ -25,7 +26,7 @@ public class ButtonCollider : MonoBehaviour
             button.transform.localPosition = new Vector3(0, 0.003f, 0);
             presser = other.gameObject;
             onPress.Invoke();
-            sound.Play();
+            audioSource.PlayOneShot(buttonPress);
             isPressed = true;
         }
     }

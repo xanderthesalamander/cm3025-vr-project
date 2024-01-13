@@ -9,17 +9,21 @@ public class ResourceTableManager : MonoBehaviour
     public GameObject turretPartSelected;
     public List<GameObject> turretParts;
     public bool enoughResources;
+    public AudioClip printPartAudio;
+    public AudioClip errorAudio;
     private int currentPartIndex = 0;
     private Animator animator;
     private GameObject gameManager;
     private ResourceManager resourceManager;
     private int resourceCost;
+    private AudioSource audioSource;
 
     void Start()
     {
         gameManager = GameObject.FindWithTag("GameManager");
         resourceManager = gameManager.GetComponent<ResourceManager>();
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
         turretPartSelected = turretParts[0];
         checkEnoughResourcesToSpawn();
     }
@@ -84,11 +88,12 @@ public class ResourceTableManager : MonoBehaviour
             GameObject spawnedPart = Instantiate(turretPartSelected);
             spawnedPart.transform.position = turretPartSpawnPoint.position;
             // Play build sound
-
+            audioSource.PlayOneShot(printPartAudio);
         }
         else
         {
             // Play error sound
+            audioSource.PlayOneShot(errorAudio);
         }
     }
 }

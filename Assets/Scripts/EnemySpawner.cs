@@ -10,11 +10,13 @@ public class EnemySpawner : MonoBehaviour
     public float additionalTurretProbIncrease = 0.00002f;
     private GameObject gameManager;
     private ResourceManager resourceManager;
+    private AudioSource sound;
 
     void Start()
     {
         gameManager = GameObject.FindWithTag("GameManager");
         resourceManager = gameManager.GetComponent<ResourceManager>();
+        sound = GetComponent<AudioSource>();
     }
     void Update()
     {
@@ -32,6 +34,8 @@ public class EnemySpawner : MonoBehaviour
     }
 
     public void spawnEnemy(GameObject enemy) {
+        // Play sound
+        sound.Play();
         // Create enemy
         GameObject spawnedEnemy = Instantiate(enemy);
         // Place it in current position

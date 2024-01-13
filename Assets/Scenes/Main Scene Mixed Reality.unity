@@ -139,6 +139,8 @@ GameObject:
   - component: {fileID: 56004154}
   - component: {fileID: 56004157}
   - component: {fileID: 56004158}
+  - component: {fileID: 56004160}
+  - component: {fileID: 56004159}
   m_Layer: 3
   m_Name: XR Origin (XR Rig)
   m_TagString: Player
@@ -303,9 +305,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1760703bbd54c04488a8d10600262ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PlanePrefab: {fileID: 1061096228747983430, guid: fbecbc8ad46a44e6e80fc546044f7dc8,
+  m_PlanePrefab: {fileID: 1061096228747983430, guid: 7947aeacee2f34de79d9f9a9ced8d250,
     type: 3}
   m_DetectionMode: -1
+--- !u!114 &56004159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 56004150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78c3fe8789d6d4d048e383a6934fb07c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointCloudManager: {fileID: 56004160}
+  renderingMaterial: {fileID: 2100000, guid: 63602badcd2644068993e1829620ede3, type: 2}
+--- !u!114 &56004160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 56004150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ab0e80cee9cc1d44928bfe488dd1e2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PointCloudPrefab: {fileID: 6532990533632810769, guid: 82614f285c9a5481fbc7398c9e1d4995,
+    type: 3}
 --- !u!4 &111806297 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2462301447197301904, guid: 428c9f91424b748a38bd7f4d90bd0b5d,

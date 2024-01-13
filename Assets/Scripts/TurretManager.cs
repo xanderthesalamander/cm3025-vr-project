@@ -134,11 +134,11 @@ public class TurretManager : MonoBehaviour
             TurretGun gunScriptL = turretArmL.GetComponent<TurretGun>();
             TurretGun gunScriptR = turretArmR.GetComponent<TurretGun>();
             // Add randomness
-            if (Random.Range(0.0f, 1.0f) > 0.95f)
+            if (Random.Range(0.0f, 1.0f) > 0.97f)
             {
                 gunScriptL.FireBullet();
             }
-            if (Random.Range(0.0f, 1.0f) > 0.95f)
+            if (Random.Range(0.0f, 1.0f) > 0.97f)
             {
                 gunScriptR.FireBullet();
             }

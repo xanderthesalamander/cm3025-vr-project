@@ -7,11 +7,20 @@ public class ObjectTakeDamage : MonoBehaviour
     public ObjectHealth enemyHealth;
     public float damage_multiplier;
     public string bulletTag = "Bullet";
+    public AudioClip hitSound;
+    private AudioSource audioSource;
+
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == bulletTag)
         {
+            // Play sound
+            audioSource.PlayOneShot(hitSound);
             // Get bullet damage
             BulletStats bulletStats = collision.gameObject.GetComponent<BulletStats>();
             float bullet_damage = bulletStats.damage;
