@@ -8,6 +8,8 @@ public class PistolFireBulletOnActivate : MonoBehaviour
     public GameObject bullet;
     public Transform bulletSpawnPoint;
     public float fireSpeed = 20;
+    public AudioClip gunShotAudio;
+    private AudioSource audioSource;
     
     // Start is called before the first frame update
     void Start()
@@ -15,6 +17,7 @@ public class PistolFireBulletOnActivate : MonoBehaviour
         XRGrabInteractable grabbable = GetComponent<XRGrabInteractable>();
         // FireBullet is the function that gets called
         grabbable.activated.AddListener(FireBullet);
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -24,6 +27,8 @@ public class PistolFireBulletOnActivate : MonoBehaviour
     }
 
     public void FireBullet(ActivateEventArgs arg) {
+        // Play sound
+        audioSource.PlayOneShot(gunShotAudio);
         // Create bullet
         GameObject spawnedBullet = Instantiate(bullet);
         // Place it in bulletSpawnPoint
