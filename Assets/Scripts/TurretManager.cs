@@ -176,10 +176,12 @@ public class TurretManager : MonoBehaviour
         {
             lightContainers.Add(turretBaseLights);
         }
-        Transform turretBodyLights = turretBody?.transform.Find("Lights");
-        if (turretBodyLights != null)
-        {
-            lightContainers.Add(turretBodyLights);
+        if (turretBody != null) {
+            Transform turretBodyLights = turretBody?.transform.Find("Lights");
+            if (turretBodyLights != null)
+            {
+                lightContainers.Add(turretBodyLights);
+            }
         }
         // For each light group
         foreach (Transform lightsGroup in lightContainers)
