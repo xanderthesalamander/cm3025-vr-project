@@ -86,6 +86,7 @@ public class ResourceTableManager : MonoBehaviour
             resourceManager.RemoveResource(resourceCost);
             // Spawn the turret part in the spawn point
             GameObject spawnedPart = Instantiate(turretPartSelected);
+            spawnedPart.transform.parent = null;
             spawnedPart.transform.position = turretPartSpawnPoint.position;
             // Play build sound
             audioSource.PlayOneShot(printPartAudio);
