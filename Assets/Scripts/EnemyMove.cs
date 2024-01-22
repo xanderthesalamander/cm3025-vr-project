@@ -12,8 +12,12 @@ public class EnemyMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Set target as the player
-        target = GameObject.FindWithTag("PlayerBase").transform;
+        // Find the player base and set it as the target
+        GameObject playerBase = GameObject.FindWithTag("PlayerBase");
+        if (playerBase != null)
+        {
+            target = playerBase.transform;
+        }
         // Get enemy navigation mesh agent
         navMeshAgent = GetComponent<NavMeshAgent>();
     }
@@ -21,15 +25,19 @@ public class EnemyMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Look at target
-        transform.LookAt(target);
-        // Move towards the target
-        navMeshAgent.SetDestination(target.transform.position);
-        // When at a certain distance
-        if (Vector3.Distance(transform.position, target.position) < attackDistance)
+        // Check if the target is not null before proceeding
+        if (target != null)
         {
-            // Stop moving
-            gameObject.GetComponent<NavMeshAgent>().velocity = Vector3.zero;
+            // Look at target
+            transform.LookAt(target);
+            // Move towards the target
+            navMeshAgent.SetDestination(target.transform.position);
+            // When at a certain distance
+            if (Vector3.Distance(transform.position, target.position) < attackDistance)
+            {
+                // Stop moving
+                gameObject.GetComponent<NavMeshAgent>().velocity = Vector3.zero;
+            }
         }
     }
 }

@@ -8,14 +8,14 @@ public class EnemySpawner : MonoBehaviour
     public float baseProbabilityThreshold = 0.999f;
     public float minActiveTurretsToActivate = 0;
     public float additionalTurretProbIncrease = 0.00002f;
-    private GameObject gameManager;
     private ResourceManager resourceManager;
+    private WaveManager waveManager;
     private AudioSource sound;
 
     void Start()
     {
-        gameManager = GameObject.FindWithTag("GameManager");
-        resourceManager = gameManager.GetComponent<ResourceManager>();
+        resourceManager = GameObject.Find("Resource Manager").GetComponent<ResourceManager>();
+        waveManager = GameObject.Find("Wave Manager").GetComponent<WaveManager>();
         sound = GetComponent<AudioSource>();
     }
     void Update()
@@ -29,6 +29,7 @@ public class EnemySpawner : MonoBehaviour
             if (Random.Range(0.0f,1.0f) > probabilityThreshold)
             {
                 spawnEnemy(enemyA);
+                waveManager.AddSpawnedEnemy();
             }
         }
     }

@@ -15,7 +15,6 @@ public class PurchaseScreen : MonoBehaviour
     public Color noErrorScreenFilter;
     public TextMeshProUGUI tmpErrorText;
     private bool enoughResources;
-    private GameObject gameManager;
     private ResourceManager resourceManager;
     private ResourceTableManager resourceTableManager;
     private GameObject selectedPart;
@@ -23,8 +22,7 @@ public class PurchaseScreen : MonoBehaviour
 
     void Start()
     {
-        gameManager = GameObject.FindWithTag("GameManager");
-        resourceManager = gameManager.GetComponent<ResourceManager>();
+        resourceManager = GameObject.Find("Resource Manager").GetComponent<ResourceManager>();
         resourceTableManager = resourceTable.GetComponent<ResourceTableManager>();
         selectedPart = resourceTableManager.turretPartSelected;
         selectedPartStats = selectedPart.GetComponent<TurretPartStats>();

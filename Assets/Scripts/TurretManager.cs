@@ -17,14 +17,12 @@ public class TurretManager : MonoBehaviour
     private Transform armAttachTransformR;
     private GameObject turretArmL;
     private GameObject turretArmR;
-    private GameObject gameManager;
     private ResourceManager resourceManager;
 
     public void Start()
     {
         // Resource manager
-        gameManager = GameObject.FindWithTag("GameManager");
-        resourceManager = gameManager?.GetComponent<ResourceManager>();
+        resourceManager = GameObject.Find("Resource Manager").GetComponent<ResourceManager>();
         // Checks if something is attached to the base
         checkBody = bodyAttachPoint?.GetComponent<AttachedObjectRef>();
     }

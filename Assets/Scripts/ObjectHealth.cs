@@ -7,8 +7,8 @@ public class ObjectHealth : MonoBehaviour
     public float maxHealth = 100f;
     public int resourceValue = 10;
     public AudioClip deadSound;
-    private GameObject gameManager;
     private ResourceManager resourceManager;
+    private GameManager gameManager;
     public GameObject healthBarUI;
     public Slider slider;
 
@@ -16,8 +16,8 @@ public class ObjectHealth : MonoBehaviour
     {
         health = maxHealth;
         slider.value = CalculateHealth();
-        gameManager = GameObject.FindWithTag("GameManager");
-        resourceManager = gameManager.GetComponent<ResourceManager>();
+        resourceManager = GameObject.Find("Resource Manager").GetComponent<ResourceManager>();
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
     }
 
     void Update()
@@ -35,6 +35,11 @@ public class ObjectHealth : MonoBehaviour
             PlayDeadSound();
             // Add resource
             resourceManager.AddResource(resourceValue);
+            // Game over if this is the base
+            if (gameObject.CompareTag("PlayerBase"))
+            {
+                gameManager.UpdateGameState(GameState.LoseState);
+            }
             // Destroy the GameObject
             Destroy(gameObject);
         }

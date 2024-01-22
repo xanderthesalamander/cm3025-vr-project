@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ObjectTakeDamage : MonoBehaviour
 {
-    public ObjectHealth enemyHealth;
+    public ObjectHealth objectHealth;
     public float damage_multiplier;
     public string bulletTag = "Bullet";
     public AudioClip hitSound;
@@ -27,7 +27,7 @@ public class ObjectTakeDamage : MonoBehaviour
             // Calculate damage
             float damage = damage_multiplier * bullet_damage;
             // Take damage
-            enemyHealth.takeDamage(damage);
+            objectHealth.takeDamage(damage);
             // Delete bullet
             Destroy(collision.gameObject);
         }

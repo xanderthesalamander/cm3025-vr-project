@@ -6,13 +6,11 @@ using TMPro;
 public class TMPResourceText : MonoBehaviour
 {
     public TextMeshProUGUI textMeshProText;
-    private GameObject gameManager;
     private ResourceManager resourceManager;
 
     void Start()
     {
-        gameManager = GameObject.FindWithTag("GameManager");
-        resourceManager = gameManager.GetComponent<ResourceManager>();
+        resourceManager = GameObject.Find("Resource Manager").GetComponent<ResourceManager>();
     }
 
     void Update()

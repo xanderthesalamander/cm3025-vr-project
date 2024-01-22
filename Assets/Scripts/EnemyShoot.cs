@@ -15,12 +15,21 @@ public class EnemyShoot : MonoBehaviour
     {
         // Get target base
         target = GameObject.FindWithTag("PlayerBase").transform;
-        // Get gun scripts
-        leftGunScript = leftArm.GetComponent<EnemyGun>();
-        rightGunScript = rightArm.GetComponent<EnemyGun>();
-        // Start shooting coroutine for each arm
-        StartCoroutine(ShootRandomly(leftGunScript, leftArm, 1f, 2f));
-        StartCoroutine(ShootRandomly(rightGunScript, rightArm, 1f, 2f));
+
+        // Check if leftArm and rightArm are not null before accessing components
+        if (leftArm != null)
+        {
+            leftGunScript = leftArm.GetComponent<EnemyGun>();
+            // Start shooting coroutine for the left arm
+            StartCoroutine(ShootRandomly(leftGunScript, leftArm, 1f, 2f));
+        }
+
+        if (rightArm != null)
+        {
+            rightGunScript = rightArm.GetComponent<EnemyGun>();
+            // Start shooting coroutine for the right arm
+            StartCoroutine(ShootRandomly(rightGunScript, rightArm, 1f, 2f));
+        }
     }
 
     // Coroutine to shoot at random intervals
@@ -29,16 +38,23 @@ public class EnemyShoot : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(Random.Range(minInterval, maxInterval));
-            if (gunScript != null && Vector3.Distance(armObject.transform.position, target.position) <= minShootingDistance)
+
+            // Check if gunScript and target are not null before shooting
+            if (gunScript != null && target != null)
             {
-                // Target aim
-                Vector3 directionToTarget = target.position - armObject.transform.position;
-                // Point at the target
-                armObject.transform.rotation = Quaternion.LookRotation(directionToTarget);
-                // Shoot bullet
-                gunScript.FireBullet();
+                bool closeEnough = (Vector3.Distance(armObject.transform.position, target.position) <= minShootingDistance);
+
+                // Check if armObject is not null before accessing its position
+                if (armObject != null && closeEnough)
+                {
+                    // Target aim
+                    Vector3 directionToTarget = target.position - armObject.transform.position;
+                    // Point at the target
+                    armObject.transform.rotation = Quaternion.LookRotation(directionToTarget);
+                    // Shoot bullet
+                    gunScript.FireBullet();
+                }
             }
         }
     }
 }
-
