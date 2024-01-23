@@ -159,7 +159,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9141794274113465189}
-  - component: {fileID: 3184036744611187923}
+  - component: {fileID: 2545339110637741838}
   - component: {fileID: 4299917430087560453}
   - component: {fileID: 4685589724791522147}
   m_Layer: 0
@@ -186,7 +186,7 @@ Transform:
   - {fileID: 3918412814026093525}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3184036744611187923
+--- !u!114 &2545339110637741838
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -199,8 +199,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1000
-  maxHealth: 1000
-  resourceValue: 10
+  maxHealth: 100
+  resourceValue: 0
   deadSound: {fileID: 8300000, guid: d707062fa8ba448ab86cd327c25f33ee, type: 3}
   healthBarUI: {fileID: 8151552152069876922}
   slider: {fileID: 4370174873125284048}
@@ -431,7 +431,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b7a39c29803d48e9ab732aee26b27e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHealth: {fileID: 3184036744611187923}
+  objectHealth: {fileID: 2545339110637741838}
   damage_multiplier: 1
   bulletTag: EnemyBullet
   hitSound: {fileID: 8300000, guid: f79982734f6ee461393af48476a41b94, type: 3}

@@ -1,0 +1,169 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &4101288608393658367
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 711164768154187305, guid: cc6b656be3fc445f0a32c075359d1229,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -4.800008
+      objectReference: {fileID: 0}
+    - target: {fileID: 1238632154350359922, guid: cc6b656be3fc445f0a32c075359d1229,
+        type: 3}
+      propertyPath: m_Name
+      value: Text - Base planning
+      objectReference: {fileID: 0}
+    - target: {fileID: 3137184628470158506, guid: cc6b656be3fc445f0a32c075359d1229,
+        type: 3}
+      propertyPath: m_text
+      value: Next Wave
+      objectReference: {fileID: 0}
+    - target: {fileID: 3773497088055060156, guid: cc6b656be3fc445f0a32c075359d1229,
+        type: 3}
+      propertyPath: m_Name
+      value: Planning Screen Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 3773497088055060156, guid: cc6b656be3fc445f0a32c075359d1229,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4428804611261142966, guid: cc6b656be3fc445f0a32c075359d1229,
+        type: 3}
+      propertyPath: m_text
+      value: 'Base
+
+        planning'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4428804611261142966, guid: cc6b656be3fc445f0a32c075359d1229,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 4428804611261142966, guid: cc6b656be3fc445f0a32c075359d1229,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 5647317023116338178, guid: cc6b656be3fc445f0a32c075359d1229,
+        type: 3}
+      propertyPath: m_Name
+      value: ButtonNextWave
+      objectReference: {fileID: 0}
+    - target: {fileID: 5721021266618522960, guid: cc6b656be3fc445f0a32c075359d1229,
+        type: 3}
+      propertyPath: onPress.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5721021266618522960, guid: cc6b656be3fc445f0a32c075359d1229,
+        type: 3}
+      propertyPath: onRelease.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5721021266618522960, guid: cc6b656be3fc445f0a32c075359d1229,
+        type: 3}
+      propertyPath: onPress.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5721021266618522960, guid: cc6b656be3fc445f0a32c075359d1229,
+        type: 3}
+      propertyPath: onPress.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5721021266618522960, guid: cc6b656be3fc445f0a32c075359d1229,
+        type: 3}
+      propertyPath: onPress.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5721021266618522960, guid: cc6b656be3fc445f0a32c075359d1229,
+        type: 3}
+      propertyPath: onPress.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: startEnemyWaveState
+      objectReference: {fileID: 0}
+    - target: {fileID: 5721021266618522960, guid: cc6b656be3fc445f0a32c075359d1229,
+        type: 3}
+      propertyPath: onRelease.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5721021266618522960, guid: cc6b656be3fc445f0a32c075359d1229,
+        type: 3}
+      propertyPath: onPress.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5721021266618522960, guid: cc6b656be3fc445f0a32c075359d1229,
+        type: 3}
+      propertyPath: onPress.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5828348315146594647, guid: cc6b656be3fc445f0a32c075359d1229,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5828348315146594647, guid: cc6b656be3fc445f0a32c075359d1229,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5828348315146594647, guid: cc6b656be3fc445f0a32c075359d1229,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5828348315146594647, guid: cc6b656be3fc445f0a32c075359d1229,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5828348315146594647, guid: cc6b656be3fc445f0a32c075359d1229,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5828348315146594647, guid: cc6b656be3fc445f0a32c075359d1229,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5828348315146594647, guid: cc6b656be3fc445f0a32c075359d1229,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5828348315146594647, guid: cc6b656be3fc445f0a32c075359d1229,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5828348315146594647, guid: cc6b656be3fc445f0a32c075359d1229,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 5828348315146594647, guid: cc6b656be3fc445f0a32c075359d1229,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6130191340188216217, guid: cc6b656be3fc445f0a32c075359d1229,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.044
+      objectReference: {fileID: 0}
+    - target: {fileID: 7423975898736009164, guid: cc6b656be3fc445f0a32c075359d1229,
+        type: 3}
+      propertyPath: m_Name
+      value: Text - Next Wave
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: 7766722522404748136, guid: cc6b656be3fc445f0a32c075359d1229, type: 3}
+    - {fileID: 7954837481893689827, guid: cc6b656be3fc445f0a32c075359d1229, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cc6b656be3fc445f0a32c075359d1229, type: 3}
