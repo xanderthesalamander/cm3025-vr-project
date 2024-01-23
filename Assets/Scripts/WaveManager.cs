@@ -55,6 +55,7 @@ public class WaveManager : MonoBehaviour
                 // All enemis in current wave have been killed
                 if (currentNumberOfEnemies == 0)
                 {
+                    waveActive = false;
                     if (waveLevel == maxWaveLevel)
                     {
                         // Won the game
@@ -62,7 +63,6 @@ public class WaveManager : MonoBehaviour
                     }
                     else
                     {
-                        waveActive = false;
                         // Update game state
                         GameManager.instance.UpdateGameState(GameState.PlayerPlanningState);
                     }
@@ -77,6 +77,12 @@ public class WaveManager : MonoBehaviour
         {
             Destroy(enemy);
         }
+    }
+
+    public void stopWave()
+    {
+        deactivateEnemySpawnPoint();
+        waveActive = false;
     }
 
     public void AddSpawnedEnemy()

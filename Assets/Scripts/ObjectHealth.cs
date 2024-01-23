@@ -9,6 +9,7 @@ public class ObjectHealth : MonoBehaviour
     public AudioClip deadSound;
     private ResourceManager resourceManager;
     private GameManager gameManager;
+    private WaveManager waveManager;
     public GameObject healthBarUI;
     public Slider slider;
 
@@ -18,6 +19,7 @@ public class ObjectHealth : MonoBehaviour
         slider.value = CalculateHealth();
         resourceManager = GameObject.Find("Resource Manager").GetComponent<ResourceManager>();
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
+        waveManager = GameObject.Find("Wave Manager").GetComponent<WaveManager>();
     }
 
     void Update()
@@ -38,6 +40,7 @@ public class ObjectHealth : MonoBehaviour
             // Game over if this is the base
             if (gameObject.CompareTag("PlayerBase"))
             {
+                waveManager.stopWave();
                 gameManager.UpdateGameState(GameState.LoseState);
             }
             // Destroy the GameObject

@@ -13,7 +13,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject planningScreen;
     [SerializeField] private GameObject gameOverScreen;
     [SerializeField] private GameObject victoryScreen;
-    
+    // Base target
+    [SerializeField] private GameObject baseTargetPosition;
+    [SerializeField] private GameObject baseTargetPrefab;
+    private GameObject currentBaseTarget;
     void Awake()
     {
         instance = this;
@@ -25,6 +28,7 @@ public class GameManager : MonoBehaviour
         startScreen?.SetActive(false);
         planningScreen?.SetActive(false);
         gameOverScreen?.SetActive(false);
+        victoryScreen?.SetActive(false);
         // Initial state
         UpdateGameState(GameState.SetupState);
     }
@@ -44,18 +48,21 @@ public class GameManager : MonoBehaviour
                 ResetGame();
                 startScreen?.SetActive(false);
                 planningScreen?.SetActive(true);
+                victoryScreen?.SetActive(false);
                 gameOverScreen?.SetActive(false);
                 break;
             case GameState.PlayerPlanningState:
                 startScreen?.SetActive(false);
                 planningScreen?.SetActive(true);
+                victoryScreen?.SetActive(false);
+                gameOverScreen?.SetActive(false);
                 break;
             case GameState.EnemyWaveState:
                 planningScreen.SetActive(false);
                 break;
             case GameState.VictoryState:
                 planningScreen?.SetActive(false);
-                gameOverScreen?.SetActive(true);
+                victoryScreen?.SetActive(true);
                 break;
             case GameState.LoseState:
                 planningScreen?.SetActive(false);
@@ -93,10 +100,25 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void RespawnBase()
+    {
+        // Destroy current base
+        if (currentBaseTarget != null)
+        {
+            Destroy(currentBaseTarget);
+        }
+        // Create Base
+        currentBaseTarget = Instantiate(baseTargetPrefab);
+        // Place it
+        currentBaseTarget.transform.position = baseTargetPosition.transform.position;
+    }
+
     private void ResetGame()
     {
         DestroyAllEnemies();
-        // FIXME: Place player base
+        RespawnBase();
+        // FIXME: Respawn guns
+        // FIXME: Reset turrets
     }
 }
 
