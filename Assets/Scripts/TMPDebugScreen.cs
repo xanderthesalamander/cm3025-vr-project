@@ -9,11 +9,13 @@ public class TMPDebugScreen : MonoBehaviour
     public TextMeshProUGUI TMPTextErrors;
     private ResourceManager resourceManager;
     private GameManager gameManager;
+    private WaveManager waveManager;
 
     void Start()
     {
         resourceManager = GameObject.Find("Resource Manager").GetComponent<ResourceManager>();
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
+        waveManager = GameObject.Find("Wave Manager").GetComponent<WaveManager>();
         // Subscribe to the log event
         Application.logMessageReceived += HandleLog;
     }
@@ -26,7 +28,9 @@ public class TMPDebugScreen : MonoBehaviour
     void Update()
     {
         string statusText = "GameState: " + gameManager.state.ToString() +
-                            "\nResources: " + resourceManager.GetCurrentResources().ToString();
+                            "\nResources: " + resourceManager.GetCurrentResources().ToString() +
+                            "\nWave #: " + waveManager.getWaveLevel().ToString() +
+                            "\nWave active: " + waveManager.isWaveActive().ToString();
         TMPTextStatus.text = statusText;
     }
 

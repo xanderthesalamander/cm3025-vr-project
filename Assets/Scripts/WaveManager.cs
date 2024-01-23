@@ -8,7 +8,7 @@ public class WaveManager : MonoBehaviour
     public GameObject enemyB;
     public GameObject enemyC;
     public List<GameObject> enemySpawnPoints;
-    public int maxWaveLevel = 10;
+    [SerializeField] private int maxWaveLevel = 10;
     private int waveLevel = 0;
     private bool waveActive = false;
     private int currentNumberOfEnemies = 0;
@@ -59,6 +59,7 @@ public class WaveManager : MonoBehaviour
                     if (waveLevel == maxWaveLevel)
                     {
                         // Won the game
+                        waveLevel = 0;
                         GameManager.instance.UpdateGameState(GameState.VictoryState);
                     }
                     else
@@ -79,15 +80,26 @@ public class WaveManager : MonoBehaviour
         }
     }
 
-    public void stopWave()
+    public void stopAndResetWave()
     {
         deactivateEnemySpawnPoint();
+        waveLevel = 0;
         waveActive = false;
     }
 
     public void AddSpawnedEnemy()
     {
         enemiesSpawned++;
+    }
+
+    public int getWaveLevel()
+    {
+        return waveLevel;
+    }
+
+    public bool isWaveActive()
+    {
+        return waveActive;
     }
 
     private void UpdateEnemyList()

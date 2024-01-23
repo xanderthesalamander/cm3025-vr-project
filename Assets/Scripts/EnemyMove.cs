@@ -5,9 +5,10 @@ using UnityEngine.AI;
 
 public class EnemyMove : MonoBehaviour
 {
+    public float moveSpeed = 1.0f;
+    public float attackDistance = 2.0f;
     private Transform target;
     private NavMeshAgent navMeshAgent;
-    public float attackDistance = 2.0f;
     
     // Start is called before the first frame update
     void Start()
@@ -32,6 +33,8 @@ public class EnemyMove : MonoBehaviour
             transform.LookAt(target);
             // Move towards the target
             navMeshAgent.SetDestination(target.transform.position);
+            // Set speed
+            navMeshAgent.speed = moveSpeed;
             // When at a certain distance
             if (Vector3.Distance(transform.position, target.position) < attackDistance)
             {

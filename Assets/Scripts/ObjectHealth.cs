@@ -40,7 +40,7 @@ public class ObjectHealth : MonoBehaviour
             // Game over if this is the base
             if (gameObject.CompareTag("PlayerBase"))
             {
-                waveManager.stopWave();
+                waveManager.stopAndResetWave();
                 gameManager.UpdateGameState(GameState.LoseState);
             }
             // Destroy the GameObject
