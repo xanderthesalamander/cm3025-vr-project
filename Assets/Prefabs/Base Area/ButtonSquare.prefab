@@ -329,12 +329,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 4939002296646059252}
   buttonPress: {fileID: 8300000, guid: ba2c6c077723c4dafafebe94796c95c8, type: 3}
-  onPress:
-    m_PersistentCalls:
-      m_Calls: []
   onRelease:
     m_PersistentCalls:
       m_Calls: []
+  enableColorTransition: 0
+  targetColor: {r: 1, g: 1, b: 1, a: 1}
+  pressDuration: 0.1
 --- !u!1 &4939002296646059252
 GameObject:
   m_ObjectHideFlags: 0

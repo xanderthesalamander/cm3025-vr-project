@@ -48,7 +48,7 @@ PrefabInstance:
     - target: {fileID: 5721021266618522960, guid: cc6b656be3fc445f0a32c075359d1229,
         type: 3}
       propertyPath: pressDuration
-      value: 2.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5721021266618522960, guid: cc6b656be3fc445f0a32c075359d1229,
         type: 3}
@@ -63,6 +63,11 @@ PrefabInstance:
     - target: {fileID: 5721021266618522960, guid: cc6b656be3fc445f0a32c075359d1229,
         type: 3}
       propertyPath: targetColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5721021266618522960, guid: cc6b656be3fc445f0a32c075359d1229,
+        type: 3}
+      propertyPath: enableColorTransition
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5721021266618522960, guid: cc6b656be3fc445f0a32c075359d1229,

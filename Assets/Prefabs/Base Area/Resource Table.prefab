@@ -3113,6 +3113,11 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 2c5607df6ada3496c9eaadd570e0e1d4, type: 3}
     - target: {fileID: 1058192830249297481, guid: dabd7ef8e9e024129ab37c0a86ddbbb3,
         type: 3}
+      propertyPath: pressDuration
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1058192830249297481, guid: dabd7ef8e9e024129ab37c0a86ddbbb3,
+        type: 3}
       propertyPath: onRelease.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}

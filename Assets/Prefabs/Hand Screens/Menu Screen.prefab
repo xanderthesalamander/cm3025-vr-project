@@ -835,6 +835,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5828348315146594647}
     m_Modifications:
+    - target: {fileID: 1058192830249297481, guid: dabd7ef8e9e024129ab37c0a86ddbbb3,
+        type: 3}
+      propertyPath: pressDuration
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1058192830249297481, guid: dabd7ef8e9e024129ab37c0a86ddbbb3,
+        type: 3}
+      propertyPath: enableColorTransition
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1122837403820810011, guid: dabd7ef8e9e024129ab37c0a86ddbbb3,
         type: 3}
       propertyPath: m_Name

@@ -7,9 +7,9 @@ public class ButtonCollider : MonoBehaviour
     public GameObject button;
     public AudioClip buttonPress;
     public UnityEvent onRelease;
+    public bool enableColorTransition = false;
     public Color targetColor = Color.white;
-    public float pressDuration = 0.2f;
-    private GameObject presser;
+    public float pressDuration = 0.1f;
     private AudioSource audioSource;
     private bool isPressed;
     private float pressStartTime;
@@ -35,23 +35,25 @@ public class ButtonCollider : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!isPressed)
+        if (!isPressed && other.gameObject.CompareTag("Player"))
         {
             // Pressed position
             button.transform.localPosition = new Vector3(0, 0.003f, 0);
-            presser = other.gameObject;
             // Play sound
             audioSource.PlayOneShot(buttonPress);
             isPressed = true;
             pressStartTime = Time.time;
-            // Start the color transition on the button object
-            StartCoroutine(ChangeColorOverTime());
+            if (enableColorTransition)
+            {
+                // Start the color transition on the button object
+                StartCoroutine(ChangeColorOverTime());
+            }
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject == presser)
+        if (other.gameObject.CompareTag("Player"))
         {
             // Original position
             button.transform.localPosition = new Vector3(0, 0.015f, 0);
@@ -75,7 +77,7 @@ public class ButtonCollider : MonoBehaviour
     IEnumerator ChangeColorOverTime()
     {
         float elapsedTime = 0f;
-        while (isPressed & elapsedTime < pressDuration)
+        while (isPressed && elapsedTime < pressDuration)
         {
             buttonRenderer.material.color = Color.Lerp(originalColor, targetColor, elapsedTime / pressDuration);
             elapsedTime += Time.deltaTime;
