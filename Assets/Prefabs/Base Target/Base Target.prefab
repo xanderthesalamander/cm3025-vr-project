@@ -199,7 +199,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1000
-  maxHealth: 100
+  maxHealth: 1000
   resourceValue: 0
   deadSound: {fileID: 8300000, guid: d707062fa8ba448ab86cd327c25f33ee, type: 3}
   healthBarUI: {fileID: 8151552152069876922}
