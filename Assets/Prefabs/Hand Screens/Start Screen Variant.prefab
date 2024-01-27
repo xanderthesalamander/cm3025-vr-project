@@ -8,6 +8,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 711164768154187305, guid: cc6b656be3fc445f0a32c075359d1229,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -6.9
+      objectReference: {fileID: 0}
     - target: {fileID: 1238632154350359922, guid: cc6b656be3fc445f0a32c075359d1229,
         type: 3}
       propertyPath: m_Name
@@ -21,6 +26,36 @@ PrefabInstance:
     - target: {fileID: 3773497088055060156, guid: cc6b656be3fc445f0a32c075359d1229,
         type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5721021266618522960, guid: cc6b656be3fc445f0a32c075359d1229,
+        type: 3}
+      propertyPath: buttonPress
+      value: 
+      objectReference: {fileID: 8300000, guid: c64a3bbbff7b94e029944b0dbd264100, type: 3}
+    - target: {fileID: 5721021266618522960, guid: cc6b656be3fc445f0a32c075359d1229,
+        type: 3}
+      propertyPath: pressDuration
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5721021266618522960, guid: cc6b656be3fc445f0a32c075359d1229,
+        type: 3}
+      propertyPath: targetColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5721021266618522960, guid: cc6b656be3fc445f0a32c075359d1229,
+        type: 3}
+      propertyPath: targetColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5721021266618522960, guid: cc6b656be3fc445f0a32c075359d1229,
+        type: 3}
+      propertyPath: targetColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5721021266618522960, guid: cc6b656be3fc445f0a32c075359d1229,
+        type: 3}
+      propertyPath: enableProgressBar
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5721021266618522960, guid: cc6b656be3fc445f0a32c075359d1229,
@@ -117,6 +152,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6130191340188216217, guid: cc6b656be3fc445f0a32c075359d1229,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.065
+      objectReference: {fileID: 0}
+    - target: {fileID: 8716249593214367770, guid: cc6b656be3fc445f0a32c075359d1229,
+        type: 3}
+      propertyPath: m_text
+      value: Welcome
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

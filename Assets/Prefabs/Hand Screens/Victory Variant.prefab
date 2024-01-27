@@ -45,6 +45,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5721021266618522960, guid: cc6b656be3fc445f0a32c075359d1229,
         type: 3}
+      propertyPath: buttonPress
+      value: 
+      objectReference: {fileID: 8300000, guid: c64a3bbbff7b94e029944b0dbd264100, type: 3}
+    - target: {fileID: 5721021266618522960, guid: cc6b656be3fc445f0a32c075359d1229,
+        type: 3}
+      propertyPath: targetColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5721021266618522960, guid: cc6b656be3fc445f0a32c075359d1229,
+        type: 3}
+      propertyPath: targetColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5721021266618522960, guid: cc6b656be3fc445f0a32c075359d1229,
+        type: 3}
+      propertyPath: targetColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5721021266618522960, guid: cc6b656be3fc445f0a32c075359d1229,
+        type: 3}
       propertyPath: onPress.m_PersistentCalls.m_Calls.Array.size
       value: 0
       objectReference: {fileID: 0}
