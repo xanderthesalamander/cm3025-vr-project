@@ -311,7 +311,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1760703bbd54c04488a8d10600262ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PlanePrefab: {fileID: 1061096228747983430, guid: 8bbb6447761e04f96861a963c0b3c94d,
+  m_PlanePrefab: {fileID: 1061096228747983430, guid: 7947aeacee2f34de79d9f9a9ced8d250,
     type: 3}
   m_DetectionMode: 1
 --- !u!114 &56004159
@@ -3324,7 +3324,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ce232fada5a084a51962925585a45e6a, type: 2}
+  - {fileID: 2100000, guid: 0b0652a2faf6644b1a16ff964ceaab22, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
