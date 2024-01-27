@@ -35,6 +35,11 @@ PrefabInstance:
 
         Over'
       objectReference: {fileID: 0}
+    - target: {fileID: 4607411064236445735, guid: cc6b656be3fc445f0a32c075359d1229,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -6.9
+      objectReference: {fileID: 0}
     - target: {fileID: 5721021266618522960, guid: cc6b656be3fc445f0a32c075359d1229,
         type: 3}
       propertyPath: onPress.m_PersistentCalls.m_Calls.Array.size
@@ -139,6 +144,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.092
+      objectReference: {fileID: 0}
+    - target: {fileID: 8716249593214367770, guid: cc6b656be3fc445f0a32c075359d1229,
+        type: 3}
+      propertyPath: m_text
+      value: Oh no!
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
